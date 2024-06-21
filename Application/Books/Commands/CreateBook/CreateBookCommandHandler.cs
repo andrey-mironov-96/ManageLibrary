@@ -17,7 +17,7 @@ internal sealed class CreateBookCommandHandler : ICommandHandler<CreateBookComma
 
     public async Task<Guid> Handle(CreateBookCommand request, CancellationToken cancellationToken)
     {
-        Book book = new Book(Guid.NewGuid(), request.Name, request.Pages, request.Author);
+        Book book = new(Guid.NewGuid(), request.Name, request.Pages, request.Author);
         bookRepository.Insert(book);
         await unitOfWork.SaveChangesAsync(cancellationToken);
         return book.Id;
