@@ -17,5 +17,10 @@ namespace Domain.Entities
         public string Author { get; private set; } = string.Empty;
 
         public int Pages { get; private set; }
+
+        public BookPlace BookPlace { get; private set; }
+
+         public Guid BookPlaceId { get; private set; }
+
     }
 }
