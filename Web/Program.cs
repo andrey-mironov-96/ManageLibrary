@@ -18,16 +18,20 @@ namespace Web
             var builder = WebApplication.CreateBuilder(args);
 
             IServiceCollection services = builder.Services;
+            ConfigurationManager configuration = builder.Configuration;
 
             var presentationAssembly = typeof(Presentation.AssemblyReference).Assembly;
             services.AddControllers().AddApplicationPart(presentationAssembly);
 
             var applicationAssembly = typeof(Application.AssemblyReference).Assembly;
+
             services.AddMediatR(x =>
             {
                 x.RegisterServicesFromAssembly(applicationAssembly);
                 x.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviors<,>));
-                });
+            });
+
+
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviors<,>));
             services.AddValidatorsFromAssembly(applicationAssembly);
             services.AddSwaggerGen();
@@ -42,10 +46,13 @@ namespace Web
 
             //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Web", Version = "v1" });
             //});
+
+            var connectionString = configuration.GetSection("ConnectionString");
             services.AddDbContext<ApplicationDbContext>(builder =>
-                builder.UseNpgsql(Environment.GetEnvironmentVariable("DbConeectionString")));
+                builder.UseNpgsql(connectionString.Value));
 
             services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IBookcaseRepository, BookcaseRepository>();
             services.AddScoped<IUnitOfWork>(factory => factory.GetRequiredService<ApplicationDbContext>());
 
             var app = builder.Build();

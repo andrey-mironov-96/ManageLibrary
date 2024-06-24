@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240321142817_InitDB")]
-    partial class InitDB
+    [Migration("20240621115211_add_bookcase")]
+    partial class add_bookcase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,9 @@ namespace Infrastructure.Infrastructure.Migrations
                         .HasColumnType("character varying(1000)")
                         .HasColumnName("author");
 
+                    b.Property<Guid>("BookPlaceId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -51,6 +54,32 @@ namespace Infrastructure.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("book", "library");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Bookcase", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<long>("MaxSizeShelves")
+                        .HasColumnType("bigint")
+                        .HasColumnName("max_size_shelves");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("name");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("integer")
+                        .HasColumnName("number");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("bookcase", "library");
                 });
 #pragma warning restore 612, 618
         }

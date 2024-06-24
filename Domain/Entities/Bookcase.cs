@@ -26,7 +26,7 @@ namespace Domain.Entities
                     (ushort)this.Shelves.Count,
                     countBook,
                     shelfName, 
-                    this
+                    this.Id
                 )
             );
         }
