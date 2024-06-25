@@ -53,6 +53,7 @@ namespace Web
 
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookcaseRepository, BookcaseRepository>();
+            services.AddScoped<IShelfRepository, ShelfRepository>();
             services.AddScoped<IUnitOfWork>(factory => factory.GetRequiredService<ApplicationDbContext>());
 
             var app = builder.Build();

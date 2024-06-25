@@ -18,9 +18,13 @@ namespace Domain.Entities
 
         public int Pages { get; private set; }
 
-        public BookPlace BookPlace { get; private set; }
+        public BookPlace? BookPlace { get; private set; }
 
-         public Guid BookPlaceId { get; private set; }
+        public Guid? BookPlaceId { get; private set; }
 
+        public override string ToString()
+        {
+            return string.Format("Id: {id}, Name: {Name},  Author:{Author},  Pages:{Pages},  BookPlaceId:{BookPlaceId}", Id, Name, Author, Pages);
+        }
     }
 }
