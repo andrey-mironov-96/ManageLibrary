@@ -1,0 +1,140 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\projects\\ManageLibrary\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6685D739-8478-4B3B-ABA1-02C11DEC6DC0}|PresentationMVC\\PresentationMVC.csproj|f:\\projects\\managelibrary\\presentationmvc\\controllers\\bookcasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6685D739-8478-4B3B-ABA1-02C11DEC6DC0}|PresentationMVC\\PresentationMVC.csproj|solutionrelative:presentationmvc\\controllers\\bookcasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{494D78AC-C743-41AB-A3E5-591B42CCA06A}|MVC\\MVC.csproj|f:\\projects\\managelibrary\\mvc\\views\\bookcase\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{494D78AC-C743-41AB-A3E5-591B42CCA06A}|MVC\\MVC.csproj|solutionrelative:mvc\\views\\bookcase\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE73CB39-3F04-4931-A1E3-B673CB327EB8}|Presentation\\Presentation.csproj|f:\\projects\\managelibrary\\presentation\\controllers\\bookcasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE73CB39-3F04-4931-A1E3-B673CB327EB8}|Presentation\\Presentation.csproj|solutionrelative:presentation\\controllers\\bookcasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 1153,
+          "SelectedChildIndex": 13,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookcaseController.cs",
+              "DocumentMoniker": "F:\\projects\\ManageLibrary\\PresentationMVC\\Controllers\\BookcaseController.cs",
+              "RelativeDocumentMoniker": "PresentationMVC\\Controllers\\BookcaseController.cs",
+              "ToolTip": "F:\\projects\\ManageLibrary\\PresentationMVC\\Controllers\\BookcaseController.cs",
+              "RelativeToolTip": "PresentationMVC\\Controllers\\BookcaseController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwBwAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T10:42:16.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BookcaseController.cs",
+              "DocumentMoniker": "F:\\projects\\ManageLibrary\\Presentation\\Controllers\\BookcaseController.cs",
+              "RelativeDocumentMoniker": "Presentation\\Controllers\\BookcaseController.cs",
+              "ToolTip": "F:\\projects\\ManageLibrary\\Presentation\\Controllers\\BookcaseController.cs",
+              "RelativeToolTip": "Presentation\\Controllers\\BookcaseController.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAswBEAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T10:38:43.064Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "77753c22-4881-4f1c-a054-44cace83ae5c",
+        "Display": 1,
+        "X": -5,
+        "Y": 0,
+        "Width": 1932,
+        "Height": 1034,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\projects\\ManageLibrary\\MVC\\Views\\Bookcase\\Index.cshtml",
+              "RelativeDocumentMoniker": "MVC\\Views\\Bookcase\\Index.cshtml",
+              "ToolTip": "F:\\projects\\ManageLibrary\\MVC\\Views\\Bookcase\\Index.cshtml",
+              "RelativeToolTip": "MVC\\Views\\Bookcase\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-30T10:43:22.096Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
