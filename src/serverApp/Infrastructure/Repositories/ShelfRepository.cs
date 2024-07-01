@@ -22,5 +22,10 @@ namespace Infrastructure.Repositories
             Shelf shelf = await _dbContext.Set<Shelf>().FirstAsync(x => x.Id == id, cancellationToken);
             _dbContext.Set<Shelf>().Remove(shelf);
         }
+
+        public void Update(Shelf value)
+        {
+            _dbContext.Update(value);
+        }
     }
 }

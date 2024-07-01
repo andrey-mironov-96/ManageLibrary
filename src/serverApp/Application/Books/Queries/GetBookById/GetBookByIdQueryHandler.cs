@@ -15,10 +15,10 @@ internal sealed class GetBookByIdQueryHandler : IQueryHandler<GetBookByIdQuery, 
     }
     public async Task<BookResponse> Handle(GetBookByIdQuery request, CancellationToken cancellationToken)
     {
-        Book book = await bookRepository.GetByIdAsync(request.bookId, cancellationToken);
+        Book book = await bookRepository.GetByIdAsync(request.BookId, cancellationToken);
         if(book is null)
         {
-            throw new BookNotFoundException(request.bookId);
+            throw new BookNotFoundException(request.BookId);
         }
         return new BookResponse(book.Id, book.Name, book.Pages, book.Author);
     }

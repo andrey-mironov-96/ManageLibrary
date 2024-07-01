@@ -6,4 +6,6 @@ where T : class
     void Insert(T value);
 
     Task RemoveAsync(Guid id, CancellationToken cancellationToken);
+
+    void Update(T value);
 }

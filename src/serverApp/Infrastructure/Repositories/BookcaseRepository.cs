@@ -33,5 +33,10 @@ namespace Infrastructure.Repositories
             Bookcase bookcase = await _dbContext.Set<Bookcase>().FirstAsync(x => x.Id == id, cancellationToken);
             _dbContext.Set<Bookcase>().Remove(bookcase);
         }
+
+        public void Update(Bookcase value)
+        {
+            _dbContext.Update(value);
+        }
     }
 }
