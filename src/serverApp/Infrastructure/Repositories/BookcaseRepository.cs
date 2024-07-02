@@ -1,5 +1,7 @@
 using Domain.Abstractions;
 using Domain.Entities;
+using Domain.Primitives;
+using Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
@@ -11,10 +13,10 @@ namespace Infrastructure.Repositories
         {
             _dbContext = applicationDb;
         }
-        public async Task<IEnumerable<Bookcase>> GetBookcases(CancellationToken cancellationToken)
+        public async Task<Pagination<Bookcase>> GetBookcasesAsync(Pagination<Bookcase> pagination, CancellationToken cancellationToken)
         {
-            IEnumerable<Bookcase> bookcases = await _dbContext.Set<Bookcase>().ToListAsync(cancellationToken);
-            return bookcases;
+            pagination = await _dbContext.Set<Bookcase>().ToPaginateAsync(pagination, cancellationToken);
+            return pagination;
         }
 
         public async Task<Bookcase> GetByIdAsync(Guid id, CancellationToken cancellationToken)

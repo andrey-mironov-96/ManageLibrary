@@ -4,6 +4,8 @@ using Application.Bookcases.Commands.RemoveBookcase;
 using Application.Bookcases.Commands.UpdateBookcase;
 using Application.Bookcases.Queries.GetBookcaseById;
 using Application.Bookcases.Queries.GetBookcases;
+using Domain.Entities;
+using Domain.Primitives;
 using Mapster;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -34,11 +36,12 @@ namespace Presentation.Controllers
         }
 
         [HttpGet, Route("list")]
-        public async Task<IActionResult> GetBookcasesAsync(CancellationToken cancellationToken)
+        public async Task<IActionResult> GetBookcasesAsync(ushort page, ushort pageSize, CancellationToken cancellationToken)
         {
-            GetBookcasesQuery query = new GetBookcasesQuery();
+            Pagination<Bookcase> pagination = new Pagination<Bookcase>(page, pageSize);
+            GetBookcasesQuery query = new GetBookcasesQuery(pagination);
             GetBookcasesResponse response = await Sender.Send(query, cancellationToken);
-            return Ok(response);
+            return Ok(response.Bookcases);
         }
 
         [HttpPut]

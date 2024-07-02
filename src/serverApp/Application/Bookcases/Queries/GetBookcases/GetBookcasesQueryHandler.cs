@@ -1,6 +1,7 @@
 using Application.Abstractions.Messaging;
 using Domain.Abstractions;
 using Domain.Entities;
+using Domain.Primitives;
 
 namespace Application.Bookcases.Queries.GetBookcases
 {
@@ -14,8 +15,8 @@ namespace Application.Bookcases.Queries.GetBookcases
         }
         public async Task<GetBookcasesResponse> Handle(GetBookcasesQuery request, CancellationToken cancellationToken)
         {
-            IEnumerable<Bookcase> bookcases = await _repository.GetBookcases(cancellationToken);
-            return new GetBookcasesResponse(bookcases);
+            Pagination<Bookcase> result = await _repository.GetBookcasesAsync(request.Data, cancellationToken);
+            return new GetBookcasesResponse(result);
         }
     }
 }
