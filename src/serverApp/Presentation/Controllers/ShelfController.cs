@@ -1,5 +1,8 @@
+using Application.DTO;
+using Application.Primitives;
 using Application.Shelves.Commands.CreateShelf;
 using Application.Shelves.Queries.GetShelfById;
+using Application.Shelves.Queries.GetShelvesByBookcaseId;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,6 +24,14 @@ namespace Presentation.Controllers
         {
             GetShelfByIdQuery query = new(id);
             GetShelfByIdResponse response = await this.Sender.Send(query, cancellationToken);
+            return Ok(response);
+        }
+
+        [HttpPost, Route("get-shelves-of-bookcase/{bookcaseId:guid}")]
+        public async Task<IActionResult> GetShelvesOfBookcase(Guid bookcaseId, [FromBody] Pagination<ShelfDTO> shelves,  CancellationToken cancellationToken)
+        {
+            GetShelvesByBookcaseIdQuery query = new(bookcaseId, shelves);
+            GetShelvesByBookcaseIdResponse response = await this.Sender.Send(query, cancellationToken);
             return Ok(response);
         }
     }

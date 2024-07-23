@@ -1,8 +1,8 @@
 using Application.Abstractions.Messaging;
-using Domain.Entities;
-using Domain.Primitives;
+using Application.DTO;
+using Application.Primitives;
 
 namespace Application.Bookcases.Queries.GetBookcases
 {
-    public sealed record GetBookcasesQuery(Pagination<Bookcase> Data) : IQuery<GetBookcasesResponse>;
+    public sealed record GetBookcasesQuery(Pagination<BookcaseDTO> Data) : IQuery<GetBookcasesResponse>;
 }

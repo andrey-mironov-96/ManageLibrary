@@ -1,15 +1,20 @@
-﻿using Domain.Primitives;
+﻿using Application.Primitives;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Extensions;
 
 public static partial class QueryableExtenstions
 {
-    public static async Task<Pagination<T>> ToPaginateAsync<T>(this IQueryable<T> query, Pagination<T> pagination, CancellationToken cancellationToken) where T : class
+    public static async Task<Pagination<TDTO>> ToPaginateAsync<T, TDTO>(this IQueryable<T> query, Pagination<TDTO> pagination, CancellationToken cancellationToken)
+        where T : class
+        where TDTO : class
     {
-        pagination.Data = await query.Skip((pagination.Page - 1) * pagination.PageSize).Take(pagination.PageSize).ToListAsync(cancellationToken);
-        pagination.Total = await query.CountAsync(cancellationToken);
+        Pagination<TDTO> result = new(pagination.Page, pagination.PageSize);
 
-        return pagination;
+        result.Data = await query.Skip((pagination.Page - 1) * pagination.PageSize).Take(pagination.PageSize).ProjectToType<TDTO>().ToListAsync(cancellationToken);
+        result.Total = await query.CountAsync(cancellationToken);
+
+        return result;
     }
 }

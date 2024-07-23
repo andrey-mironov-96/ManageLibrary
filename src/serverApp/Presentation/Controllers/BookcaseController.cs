@@ -1,21 +1,25 @@
-using Application.Bookcases.Commands;
 using Application.Bookcases.Commands.CreateBookcase;
 using Application.Bookcases.Commands.RemoveBookcase;
 using Application.Bookcases.Commands.UpdateBookcase;
 using Application.Bookcases.Queries.GetBookcaseById;
 using Application.Bookcases.Queries.GetBookcases;
-using Domain.Entities;
-using Domain.Primitives;
+using Application.DTO;
+using Application.Primitives;
 using Mapster;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
+using Microsoft.Extensions.Logging;
 
 namespace Presentation.Controllers
 {
     public class BookcaseController : ApiController
     {
+        private readonly ILogger<BookcaseController> logger;
 
+        public BookcaseController(ILogger<BookcaseController> logger)
+        {
+            this.logger = logger;
+        }
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ActionName(nameof(CreateBookcaseAsync))]
@@ -38,7 +42,7 @@ namespace Presentation.Controllers
         [HttpGet, Route("list")]
         public async Task<IActionResult> GetBookcasesAsync(ushort page, ushort pageSize, CancellationToken cancellationToken)
         {
-            Pagination<Bookcase> pagination = new Pagination<Bookcase>(page, pageSize);
+            Pagination<BookcaseDTO> pagination = new Pagination<BookcaseDTO>(page, pageSize);
             GetBookcasesQuery query = new GetBookcasesQuery(pagination);
             GetBookcasesResponse response = await Sender.Send(query, cancellationToken);
             return Ok(response.Bookcases);
@@ -59,6 +63,19 @@ namespace Presentation.Controllers
             RemoveBookcaseCommand command = request.Adapt<RemoveBookcaseCommand>();
             bool result = await Sender.Send(command, cancellationToken);
             return Ok(result);
+        }
+
+        [HttpPost, Route("test")]
+        public async Task<IActionResult> Test([FromBody] RemoveBookcaseRequest request, CancellationToken cancellationToken)
+        {
+          
+                logger.LogInformation("cancel: {cancel}", cancellationToken.IsCancellationRequested);
+                await Task.Delay(5000);
+                logger.LogInformation("cancel: {cancel}", cancellationToken.IsCancellationRequested);
+                cancellationToken.ThrowIfCancellationRequested();
+            
+           
+            return Ok();
         }
 
 

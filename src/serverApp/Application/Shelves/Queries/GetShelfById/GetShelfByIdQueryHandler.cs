@@ -1,5 +1,5 @@
 using Application.Abstractions.Messaging;
-using Domain.Abstractions;
+using Application.Abstractions.Repositories;
 
 namespace Application.Shelves.Queries.GetShelfById
 {

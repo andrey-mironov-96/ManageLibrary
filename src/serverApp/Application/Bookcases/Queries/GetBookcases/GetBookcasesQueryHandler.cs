@@ -1,7 +1,7 @@
 using Application.Abstractions.Messaging;
-using Domain.Abstractions;
-using Domain.Entities;
-using Domain.Primitives;
+using Application.Abstractions.Repositories;
+using Application.DTO;
+using Application.Primitives;
 
 namespace Application.Bookcases.Queries.GetBookcases
 {
@@ -15,7 +15,7 @@ namespace Application.Bookcases.Queries.GetBookcases
         }
         public async Task<GetBookcasesResponse> Handle(GetBookcasesQuery request, CancellationToken cancellationToken)
         {
-            Pagination<Bookcase> result = await _repository.GetBookcasesAsync(request.Data, cancellationToken);
+            Pagination<BookcaseDTO> result = await _repository.GetBookcasesAsync(request.Data, cancellationToken);
             return new GetBookcasesResponse(result);
         }
     }

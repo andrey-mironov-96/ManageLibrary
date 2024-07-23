@@ -1,5 +1,8 @@
-using Domain.Abstractions;
+using Application.Abstractions.Repositories;
+using Application.DTO;
+using Application.Primitives;
 using Domain.Entities;
+using Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
@@ -10,6 +13,11 @@ namespace Infrastructure.Repositories
         public async Task<Shelf> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
             return await _dbContext.Set<Shelf>().FirstAsync(_ => _.Id == id, cancellationToken);
+        }
+
+        public async Task<Pagination<ShelfDTO>> GetShelvesByBookcaseIdAsync(Guid bookcaseId, Pagination<ShelfDTO> pagination, CancellationToken cancellationToken)
+        {
+            return await _dbContext.Set<Shelf>().Where(_ => _.BookcaseId == bookcaseId).ToPaginateAsync(pagination, cancellationToken);
         }
 
         public void Insert(Shelf value)

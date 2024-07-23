@@ -1,6 +1,7 @@
-using Domain.Abstractions;
+using Application.Abstractions.Repositories;
+using Application.DTO;
+using Application.Primitives;
 using Domain.Entities;
-using Domain.Primitives;
 using Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,14 +10,16 @@ namespace Infrastructure.Repositories
     public class BookcaseRepository : IBookcaseRepository
     {
         private readonly ApplicationDbContext _dbContext;
+
         public BookcaseRepository(ApplicationDbContext applicationDb)
         {
             _dbContext = applicationDb;
         }
-        public async Task<Pagination<Bookcase>> GetBookcasesAsync(Pagination<Bookcase> pagination, CancellationToken cancellationToken)
+        public async Task<Pagination<BookcaseDTO>> GetBookcasesAsync(Pagination<BookcaseDTO> pagination, CancellationToken cancellationToken)
         {
-            pagination = await _dbContext.Set<Bookcase>().ToPaginateAsync(pagination, cancellationToken);
-            return pagination;
+            var result = await _dbContext.Set<Bookcase>().ToPaginateAsync<Bookcase, BookcaseDTO>(pagination, cancellationToken);
+            
+            return result;
         }
 
         public async Task<Bookcase> GetByIdAsync(Guid id, CancellationToken cancellationToken)

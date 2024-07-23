@@ -6,9 +6,8 @@ using Infrastructure;
 using Infrastructure.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.OpenApi.Models;
-
+using Application.ServiceCollectionExtensions;
+using Application.Abstractions.Repositories;
 namespace Web
 {
     public class Program
@@ -34,6 +33,9 @@ namespace Web
 
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviors<,>));
             services.AddValidatorsFromAssembly(applicationAssembly);
+
+            services.AddCustomMapsterConfig();
+
             services.AddSwaggerGen();
             //services.AddSwaggerGen(c =>
             //{
