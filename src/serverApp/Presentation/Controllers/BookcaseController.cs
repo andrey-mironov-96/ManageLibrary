@@ -1,9 +1,9 @@
-using Application.Bookcases.Commands.CreateBookcase;
-using Application.Bookcases.Commands.RemoveBookcase;
-using Application.Bookcases.Commands.UpdateBookcase;
-using Application.Bookcases.Queries.GetBookcaseById;
-using Application.Bookcases.Queries.GetBookcases;
 using Application.DTO;
+using Application.Features.Bookcases.Commands.CreateBookcase;
+using Application.Features.Bookcases.Commands.RemoveBookcase;
+using Application.Features.Bookcases.Commands.UpdateBookcase;
+using Application.Features.Bookcases.Queries.GetBookcaseById;
+using Application.Features.Bookcases.Queries.GetBookcases;
 using Application.Primitives;
 using Mapster;
 using Microsoft.AspNetCore.Http;

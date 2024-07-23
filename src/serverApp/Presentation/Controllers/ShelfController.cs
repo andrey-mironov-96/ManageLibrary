@@ -1,8 +1,8 @@
 using Application.DTO;
+using Application.Features.Shelves.Commands.CreateShelf;
+using Application.Features.Shelves.Queries.GetShelfById;
+using Application.Features.Shelves.Queries.GetShelvesByBookcaseId;
 using Application.Primitives;
-using Application.Shelves.Commands.CreateShelf;
-using Application.Shelves.Queries.GetShelfById;
-using Application.Shelves.Queries.GetShelvesByBookcaseId;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
 

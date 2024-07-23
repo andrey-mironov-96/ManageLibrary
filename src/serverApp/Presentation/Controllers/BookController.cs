@@ -1,5 +1,5 @@
-﻿using Application.Books.Commands.CreateBook;
-using Application.Books.Queries.GetBookById;
+﻿using Application.Features.Books.Commands.CreateBook;
+using Application.Features.Books.Queries.GetBookById;
 using Mapster;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
